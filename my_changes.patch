@@ -1,0 +1,1587 @@
+From 504daa3bb4054fe9a45621d58cf940c5212f4704 Mon Sep 17 00:00:00 2001
+From: Veeslyys <veselkov207@gmail.com>
+Date: Sat, 22 Nov 2025 04:44:16 +0300
+Subject: [PATCH] =?UTF-8?q?=D0=A1=D0=B4=D0=B5=D0=BB=D0=B0=D0=BB=20=D1=81?=
+ =?UTF-8?q?=D1=82=D1=80=D1=83=D0=BA=D1=82=D1=83=D1=80=D1=83=20=D0=BF=D0=B0?=
+ =?UTF-8?q?=D0=BF=D0=BE=D0=BA=20=D0=B8=20=D0=B4=D0=BE=D0=B1=D0=B0=D0=B2?=
+ =?UTF-8?q?=D0=B8=D0=BB=20=D1=8D=D0=BA=D1=80=D0=B0=D0=BD=20=D0=B4=D0=BD?=
+ =?UTF-8?q?=D0=B5=D0=B2=D0=BD=D0=B8=D0=BA=D0=B0?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ .DS_Store                                     | Bin 8196 -> 10244 bytes
+ Lumo/.DS_Store                                | Bin 6148 -> 8196 bytes
+ .../Bookmarks/bookmarks.plist                 |   8 +
+ .../UserInterfaceState.xcuserstate            | Bin 0 -> 39506 bytes
+ .../xcschemes/xcschememanagement.plist        |  14 +
+ Lumo/Lumo/.DS_Store                           | Bin 0 -> 6148 bytes
+ Lumo/Lumo/Assets.xcassets/.DS_Store           | Bin 0 -> 8196 bytes
+ Lumo/Lumo/LumoApp.swift                       |   2 +-
+ Lumo/Lumo/diary/Models/DailyStats.swift       |  23 ++
+ Lumo/Lumo/diary/Models/MealData.swift         |  26 ++
+ Lumo/Lumo/diary/Models/NutrientData.swift     |  23 ++
+ .../Views/Components/CalorieRingView.swift    | 172 +++++++++++++
+ .../Components/CircularProgressView.swift     |  48 ++++
+ .../diary/Views/Components/CustomTabBar.swift |  82 ++++++
+ .../Lumo/diary/Views/Components/MealRow.swift |  89 +++++++
+ .../Components/NutrientProgressBar.swift      |  41 +++
+ .../diary/Views/Components/NutrientsRow.swift |  23 ++
+ .../Views/Components/WaterIntakeCard.swift    | 242 ++++++++++++++++++
+ Lumo/Lumo/diary/Views/HomeView.swift          | 106 ++++++++
+ 19 files changed, 898 insertions(+), 1 deletion(-)
+ create mode 100644 Lumo/Lumo.xcodeproj/project.xcworkspace/xcuserdata/hozyain.xcuserdatad/Bookmarks/bookmarks.plist
+ create mode 100644 Lumo/Lumo.xcodeproj/project.xcworkspace/xcuserdata/hozyain.xcuserdatad/UserInterfaceState.xcuserstate
+ create mode 100644 Lumo/Lumo.xcodeproj/xcuserdata/hozyain.xcuserdatad/xcschemes/xcschememanagement.plist
+ create mode 100644 Lumo/Lumo/.DS_Store
+ create mode 100644 Lumo/Lumo/Assets.xcassets/.DS_Store
+ create mode 100644 Lumo/Lumo/diary/Models/DailyStats.swift
+ create mode 100644 Lumo/Lumo/diary/Models/MealData.swift
+ create mode 100644 Lumo/Lumo/diary/Models/NutrientData.swift
+ create mode 100644 Lumo/Lumo/diary/Views/Components/CalorieRingView.swift
+ create mode 100644 Lumo/Lumo/diary/Views/Components/CircularProgressView.swift
+ create mode 100644 Lumo/Lumo/diary/Views/Components/CustomTabBar.swift
+ create mode 100644 Lumo/Lumo/diary/Views/Components/MealRow.swift
+ create mode 100644 Lumo/Lumo/diary/Views/Components/NutrientProgressBar.swift
+ create mode 100644 Lumo/Lumo/diary/Views/Components/NutrientsRow.swift
+ create mode 100644 Lumo/Lumo/diary/Views/Components/WaterIntakeCard.swift
+ create mode 100644 Lumo/Lumo/diary/Views/HomeView.swift
+
+diff --git a/.DS_Store b/.DS_Store
+index c433fa9311e5b5c3406f5c3d7cecbf67c013e4be..d03579fada7cc5a51ef88bd598dfb408833a94b1 100644
+GIT binary patch
+delta 916
+zcmZ8gK~EDw6n;Z%yDK0|*_JA3YMK}i1zI7B@gTGkMIl96YZ0*7?GAOrc4pb#QV>Zw
+zaME}nO}zR8Jdq~GqX!TE0X>;`_vFosiO%e917VWM_sx6Xd^2zI=5Xe4DGmTA+t4xq
+z2}T7rIZAy;Td||@tI;r9Ahw2igH~08syunT^)7sL(BBCQL7~MJL0EtW)PbH>vG@Zv
+zZ~b!zW2ba#(>8s#PpWC?wv$eOM?HbyxlmXL3%$a6;RS6L9K~taS;boAt0JX_+U1H`
+z(s8pQ$*mkEj-nH6xjS?XGtJslooKX~r46Fl?&gA*5JW+&Nb$YB$;@;rk(r*_PbKzl
+z-$<ttQ<FFM_eCL^oVc@G*)-~ezILw+h?Vb-ejmH=hLIq&{L1y}wqFtY(XHsGG}x_4
+zJm1^be_=oxj10+<Xe1VsW5e-_mqtb|SEM0TsczORe%Tx~sFgJuc(rEfTESGRI;oW%
+zyyFz~m$)KD&PbPWPJ4b5EAE<1B%cIazxx)(#5K%sY}nW-pW-Xel$~N5$??|8n#~@0
+z-of>GvO(EV+w6h!rlV70m#}3stVjcP)uM*6L~WfX$}5UxDWrz8yX%IcVk1wo)NyE?
+zE4f>hk|hgsr?SpCFCuyOxA%g{nMYlc0%&nALDCDcPL#XMN0j_rOSrs9D8ZtboGJP#
+z0mdK)c__0Md<AWI4<Fzoe1&iD3;v=IlF>CZfu_+cdWaU#6I4PqWTFPzMorJ52f?t%
+zuK1Qdpo31Iv=AB-VHxIN7Vg0!!*O<wcBa+8upNG@v+ofa40sNSUWRl0LmhAZ3A6`B
+ZAIm-7H@nUSthdq}+ve!oPBan-{0B?0<39iZ
+
+delta 128
+zcmZn(XmOBWU|?W$DortDU;r^WfEYvza8E20o2aKK$_$bR@)>f9%bb&P@{<@Cn1eSK
+zPGg_gz`L29gN1{UdGik;AGVDp>lp<>ih)3a8%Vf<4B1%toq009N+1W&2$0bXljC`&
+OZhk2q&A72-4I=>8?it|#
+
+diff --git a/Lumo/.DS_Store b/Lumo/.DS_Store
+index badbf0b2071f63591a43e4e47dc48652e1727f65..3baca44f46e91bd444e64857bc289ccb0356fac0 100644
+GIT binary patch
+literal 8196
+zcmeHM&rcIU6n+DUTM=EMB1+Uvns`D5A&T)}DHugfAhco;ux{I-tZsKUyITq(NzZ!p
+z=)pfgkH#2J9!&Hf(36RGPyPWW`sPO~0%EuriSv?~@9mrS&F*~d?(Ay;fTSwLet>QO
+zFtBkn+pycj_&9GHtVu;;hy?jC=CVTGWqCX{H)QL8RzNGD70?Q31+)VHf&#c_b2EOk
+z@5@o$YX!6d|D^)_`Cwt=m{eGkC>|Zyi4p*@1;fJ77q9+^77rjM71ktT1dT{4qNEa4
+zVh~k15J|`Jq{^>Jlyo5C%s7uaGf@=^QH2MwL^_b9MBQrzv;rFy;I(@TT!#vjfvv0G
+zui)6Z@4^JJk(aNAzN+(I<$c!)qrSe6q^Y@OSL<$Lx6x+Ir59K=9obPOOxeK<KguxX
+z=Ig$lpK@q5XU0dE7uk+S13_?#6jNqzI$n`gQ>@|@L%~hU0V8I_a%T6+%0T~6uhl;^
+zxY}#2oIlgoYYh&ZU0sbC2NS0+Oy=&nWsg0SOC{=Y0qyd*(LX}3u^y+esMbS1)z|ac
+zJWyXzY){+X_I>-!109|5j)NUtUGc6%-G`6#^c>BZoq4-(uN3fW9bqmDQf`ILlme%i
+z_U(e>m9i0Ciqg(~nln4rrB2e~?Vq8{vX43Op8+x5<$zL8%r`ziAJQnh#-F}rFJ&6D
+z?+*(BbKMCRI+4S?>DdrPAB$*t%$sL;@<kMU+~-5#6b(YeoVkvZowkF(_DVFhJm=bZ
+z>W+IU7DcSgGx=-<=1l~Y&y;o0=gUf5{3<m~B(K$-Ug?;SkPg0L#_OI!l6X_HgrD)4
+zM`N)>GNXnJI0+*#4q5z0K7hyY6rRCLcn=@o3w$H3Bu-9{(`1MYldI%9xk08#iTI>K
+z7D-jk&{Y4-kEt0IkQzFT&wMc*crNow7~}c->h}Pgf+Z*bgCbDyAwci$y8GfS=C8dk
+zw&c2{{&azredM6c&11J^ewmGqs(Z_L{^IrVC-mL$pE<>CbNq$1*Hyz)Y%s2ig^goU
+zVND_r@wnK95%vDh1<|Gz*g*<3%WLiC_5Y>c|Ng&&R-`XgE1(tFt^%ZGG(DO^me|!d
+yVe?(y!gdE6H=b9MC@9$d@*;r8jXw<0w=k7+k_u}QF@mOl2oN&pPAl+N75D+n3>bX?
+
+delta 142
+zcmZp1XfcprU|?W$DortDU=RQ@Ie-{MGjdEU6q~50D9QrjfW`C}Dj1R(@)=SXQYRKJ
+zXJnZyAgnMsM|k(f1_ido>>M0|%s{0;AixbITtP-`Ed0(qnP0|I0VE7Ggb7N6%mi^j
+OmVxYN*c{I@hZz9t3lnPq
+
+diff --git a/Lumo/Lumo.xcodeproj/project.xcworkspace/xcuserdata/hozyain.xcuserdatad/Bookmarks/bookmarks.plist b/Lumo/Lumo.xcodeproj/project.xcworkspace/xcuserdata/hozyain.xcuserdatad/Bookmarks/bookmarks.plist
+new file mode 100644
+index 0000000..c8d4f0a
+--- /dev/null
++++ b/Lumo/Lumo.xcodeproj/project.xcworkspace/xcuserdata/hozyain.xcuserdatad/Bookmarks/bookmarks.plist
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
++<plist version="1.0">
++<dict>
++	<key>top-level-items</key>
++	<array/>
++</dict>
++</plist>
+diff --git a/Lumo/Lumo.xcodeproj/project.xcworkspace/xcuserdata/hozyain.xcuserdatad/UserInterfaceState.xcuserstate b/Lumo/Lumo.xcodeproj/project.xcworkspace/xcuserdata/hozyain.xcuserdatad/UserInterfaceState.xcuserstate
+new file mode 100644
+index 0000000000000000000000000000000000000000..88d42748fb524e503d28c125b02db5261b328f1c
+GIT binary patch
+literal 39506
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/Lumo/Lumo.xcodeproj/xcuserdata/hozyain.xcuserdatad/xcschemes/xcschememanagement.plist b/Lumo/Lumo.xcodeproj/xcuserdata/hozyain.xcuserdatad/xcschemes/xcschememanagement.plist
+new file mode 100644
+index 0000000..a4b479a
+--- /dev/null
++++ b/Lumo/Lumo.xcodeproj/xcuserdata/hozyain.xcuserdatad/xcschemes/xcschememanagement.plist
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
++<plist version="1.0">
++<dict>
++	<key>SchemeUserState</key>
++	<dict>
++		<key>Lumo.xcscheme_^#shared#^_</key>
++		<dict>
++			<key>orderHint</key>
++			<integer>0</integer>
++		</dict>
++	</dict>
++</dict>
++</plist>
+diff --git a/Lumo/Lumo/.DS_Store b/Lumo/Lumo/.DS_Store
+new file mode 100644
+index 0000000000000000000000000000000000000000..79d1493dddaf1489a9d1420d29dafc92dedcfeeb
+GIT binary patch
+literal 6148
+zcmeHKK~EDw6n+C0wji>Uf+*2!(!^605TY0lmV!}~q=eR51gzV3S~qNGn%yl0k)&rm
+z`UCs{-i=2O9{dA(GV$)oA7G+yW~a~;ftxY9ubKJ2&b;@w?`vnK0{|phFHHgH0H9$L
+z80y3BHzwvqJ7isIqz94693HrE1-79G<{|H3AW$Gs;BQkvtldGF!*%Ndh4%HkKeA}^
+zV!`GG^c35~U2NBXN<(&HbfMwaRP?(-&9+=`a`H3j>JFXi>D79*er+TDlsD3z>DAq&
+z>8y!&8P4rOi<^b4MH_iNI?tJBT8ug}z$#I6S$}A;5^p4Vot0b}oAxKPuolkiW4pW4
+zQ?qenYIbHXZtUK;IvF=+rmyYog|(5`#Lbobrd?(Hg{%Vz?qSjf6t>_ck`pwtid(8m
+z@}*VfSAD2eXSlEb^uU=xeJC;<jf_M_N28->$IhJ}AHR^-hYMzLv*L&f=DE$Cq+O?L
+z6~`*2Yi7}6m7GVny|nd==JiO2>k2JBJ{ZdE)X*n-Fd)<2aVTXnU#eVosh4ZxtB=g>
+z%zpMkx9D)&UgoalS)8q|yZBWsdbGO8${ZiQg<nIeCZ^mhbzH=}-Vu{qH66!f6`I`H
+zu+0LsQ!L3nk5`4K$X4WR*`Xp+&O$EAirxC|3mr?`Z;`l9bcp!`51?p^DI~G?6+`k2
+z<BW#Gu|!5qX>b|lAq6?8!gF{9ui*{6g^%zFzQGUDL!#sonIN-dj@%<l<N?W&3aODg
+z*&+=;Ls#pUa8YGcK$=KS_$6$m9cFV@K~Iro2tNr2hAWH8J_{DI2A+~G_7;@E>sVhO
+zFsglh4ZsrAu@a7}w1%%EBT1qo65k$cs!FZ@Sg&9*P#{p?e^fy14+b`Y3587`<<^0n
+zyaFJGa9A30@h3sV7zz^#n?B+U8u3FB{ZOK=7{m|9aYOkf6gGYI!-1&F2T@NZ>V`t(
+z(=opx-9c`OJ`MUnfk1&a1-gB%i}U~X(f9whh=2wP1Pc6X3Xsr3dLfBbsk8M^ed4S&
+vusy*hO!zf@lp)xu<5&`L6pvw(hI57>hzW&FA8`aN_#+@?2)aOlKdQhl%jXGO
+
+literal 0
+HcmV?d00001
+
+diff --git a/Lumo/Lumo/Assets.xcassets/.DS_Store b/Lumo/Lumo/Assets.xcassets/.DS_Store
+new file mode 100644
+index 0000000000000000000000000000000000000000..2b69b045aaf0d98a7a1b7434f1c4180f54c95c6f
+GIT binary patch
+literal 8196
+zcmeHM&2G~`5S}ds97?Gh(o#SmOOZGg+5&<i4y0)j1dvjZP*VPaoos`_-HmLgX(^R*
+zh9eKa18_$iIdI?w;Dp4T6Ayp{vp;D|p;EXYl<q{k-*|UstQmW}I~xEX*+z8&U<3dx
+zYy#~*?EXMvUbNq+M~@^B3F-qdh+!Hy1lSCj2$%?%2$%?%2$%@`j}gE%TadNQy02zU
+zZz5nKup=WNz7GyIff<c0h4RyZoh$(mdvRD2@>mB*9Y<qEV@sh_MVqR6AX=5^5`!pp
+zoOgscVn$<2p;8B;)Pd+b6J4PYd3V%vq&Sd_LerZFm<aqH0a3fBU<xYuqrcSeA)LZ7
+zRm+DE;cT1>c*P62hdLt7u3|g?LlSa-VaIDmb#3RZR}cIs9v}ZidUo~h-m}-*YxP<8
+z3y*lS5W8_B%DUlQaaH6z@Y=lV&H1!hwo}ub#jek2C>8uFMUi{AeOBeoEN`%CBy|gF
+z!b(_)vOTi8dS+sB)R~w(yEf{qUN}8I>YP1uZfz}L4W-8}-Yh=}78!poJp!UXH_)%H
+z*ZUWL<F8*?(*BaqZGXSmgKdu!`}+3x9~iI)lLu4Dq2%yzYWUE|;Uh<n9xK}iJ-70t
+z77AacdBDSL(4co~p<gZ3-HOj@rI;?q1^+26+sQ4WH)-|3#!zvkjxwo@0cq|^NGX%{
+z@(T+QjZ2&O`8)1%aozerR0(+y%<{;Oea`0ZMfgy1F<s2D1&%jg!UvMCi>YXih7n@f
+z-l9{Qcf-(SHJV+yAGjV3@+`~am@f)RVXea1Y)FNrl8?M_D}Cvkig`M7z0Hg&#)h<F
+za0{Dia~etdUCohvk#R;7iFBr@rz|*$XH<D8!6H0^m+%T+!yEVjAK@!}CwoYWoFHRl
+zl1!0n<OaD#=17gyNrNnrrn1n}ekYD=iyBA^nT~U5sSvV&vl{9Mdr8c}I{tDp=NRUm
+zE3bWh{ipnUk9wQ)uOk~>l6xKbYVuCz>Q2bJj^2kYIoB`Gs>PYLTKOW(y2rTEabUl$
+zbaE59Inyxlx`1{mA4Wv|e|h`!|1R*<xL_h+BCuTqNbgKxCX2J}jm=g;QENNc9%2(D
+w<XQ@)3U;y_N0j9_;`$$k$U7)1bTS%S3ULJKpC1I6eRntRyUqG9v#Im$Cq`>@-2eap
+
+literal 0
+HcmV?d00001
+
+diff --git a/Lumo/Lumo/LumoApp.swift b/Lumo/Lumo/LumoApp.swift
+index ee37ac9..05ff79c 100644
+--- a/Lumo/Lumo/LumoApp.swift
++++ b/Lumo/Lumo/LumoApp.swift
+@@ -11,7 +11,7 @@ import SwiftUI
+ struct LumoApp: App {
+     var body: some Scene {
+         WindowGroup {
+-            ContentView()
++            HomeView()
+         }
+     }
+ }
+diff --git a/Lumo/Lumo/diary/Models/DailyStats.swift b/Lumo/Lumo/diary/Models/DailyStats.swift
+new file mode 100644
+index 0000000..68611ca
+--- /dev/null
++++ b/Lumo/Lumo/diary/Models/DailyStats.swift
+@@ -0,0 +1,23 @@
++//
++//  DailyStats.swift
++//  Lumo
++//
++//  Created by Matvey Veselkov on 22.11.2025.
++//
++import Foundation
++
++struct DailyStats {
++    var consumed: Int
++    var burned: Int
++    var goal: Int
++    
++    var remaining: Int {
++        goal - consumed + burned
++    }
++    
++    var progress: Double {
++        guard goal > 0 else { return 0 }
++        return min(Double(consumed) / Double(goal), 1.0)
++    }
++}
++
+diff --git a/Lumo/Lumo/diary/Models/MealData.swift b/Lumo/Lumo/diary/Models/MealData.swift
+new file mode 100644
+index 0000000..153a745
+--- /dev/null
++++ b/Lumo/Lumo/diary/Models/MealData.swift
+@@ -0,0 +1,26 @@
++//
++//  MealData.swift
++//  Lumo
++//
++//  Created by Matvey Veselkov on 22.11.2025.
++//
++import Foundation
++
++struct MealData: Identifiable {
++    let id = UUID()
++    let name: String
++    var calories: Int
++    var protein: Int
++    var fat: Int
++    var carbs: Int
++    
++    var percentage: Int {
++        guard calories > 0 else { return 0 }
++        return Int((Double(calories) / 2000.0) * 100)
++    }
++    
++    var isEmpty: Bool {
++        calories == 0
++    }
++}
++
+diff --git a/Lumo/Lumo/diary/Models/NutrientData.swift b/Lumo/Lumo/diary/Models/NutrientData.swift
+new file mode 100644
+index 0000000..430a029
+--- /dev/null
++++ b/Lumo/Lumo/diary/Models/NutrientData.swift
+@@ -0,0 +1,23 @@
++//
++//  NutrientData.swift
++//  Lumo
++//
++//  Created by Matvey Veselkov on 22.11.2025.
++//
++import Foundation
++
++struct NutrientData {
++    let name: String
++    let current: Int
++    let goal: Int
++    
++    var progress: Double {
++        guard goal > 0 else { return 0 }
++        return min(Double(current) / Double(goal), 1.0)
++    }
++    
++    var displayText: String {
++        "\(current)/\(goal)"
++    }
++}
++
+diff --git a/Lumo/Lumo/diary/Views/Components/CalorieRingView.swift b/Lumo/Lumo/diary/Views/Components/CalorieRingView.swift
+new file mode 100644
+index 0000000..1bc1298
+--- /dev/null
++++ b/Lumo/Lumo/diary/Views/Components/CalorieRingView.swift
+@@ -0,0 +1,172 @@
++//
++//  CalorieRingView.swift
++//  Lumo
++//
++//  Created by Matvey Veselkov on 22.11.2025.
++//
++import SwiftUI
++
++struct CalorieRingView: View {
++    let dailyStats: DailyStats
++    
++    var body: some View {
++        ZStack {
++            // === ФОН (Светлый мятно-зеленый градиент) ===
++            ZStack {
++                LinearGradient(
++                    gradient: Gradient(colors: [
++                        Color(red: 0.42, green: 0.82, blue: 0.62), // Мятный
++                        Color(red: 0.28, green: 0.68, blue: 0.48)  // Изумрудный
++                    ]),
++                    startPoint: .topLeading,
++                    endPoint: .bottomTrailing
++                )
++                
++                // Блик в центре
++                RadialGradient(
++                    gradient: Gradient(colors: [
++                        Color.white.opacity(0.4),
++                        Color.white.opacity(0.1),
++                        Color.clear
++                    ]),
++                    center: .center,
++                    startRadius: 10,
++                    endRadius: 220
++                )
++                .blendMode(.overlay)
++            }
++            .cornerRadius(24)
++            .shadow(color: Color.green.opacity(0.25), radius: 12, x: 0, y: 6)
++            
++            // === КОНТЕНТ ===
++            VStack(spacing: 25) {
++                // ВЕРХНЯЯ ЧАСТЬ (Цифры и Круг)
++                HStack(alignment: .center, spacing: 10) {
++                    
++                    // СЪЕДЕНО
++                    VStack(spacing: 2) {
++                        Text("\(dailyStats.consumed)")
++                            .font(.system(size: 28, weight: .bold, design: .rounded))
++                            .foregroundColor(Color(red: 0.05, green: 0.2, blue: 0.05)) // Темно-зеленый
++                        Text("Съедено")
++                            .font(.system(size: 13, weight: .medium))
++                            .foregroundColor(Color(red: 0.05, green: 0.2, blue: 0.05).opacity(0.6))
++                    }
++                    .frame(width: 80)
++                    
++                    // КРУГ
++                    ZStack {
++                        // Подложка круга
++                        Circle()
++                            .stroke(Color.white.opacity(0.35), lineWidth: 18)
++                            .frame(width: 140, height: 140)
++                        
++                        // Индикатор прогресса
++                        Circle()
++                            .trim(from: 0.0, to: dailyStats.progress)
++                            .stroke(
++                                Color(red: 0.1, green: 0.75, blue: 0.3), // Яркий зеленый
++                                style: StrokeStyle(lineWidth: 18, lineCap: .round)
++                            )
++                            .rotationEffect(.degrees(-90))
++                            .frame(width: 140, height: 140)
++                            .shadow(color: Color.black.opacity(0.1), radius: 3, x: 0, y: 2)
++                        
++                        // Текст внутри
++                        VStack(spacing: 0) {
++                            Text("\(dailyStats.remaining)")
++                                .font(.system(size: 34, weight: .bold, design: .rounded))
++                                .foregroundColor(.black.opacity(0.9))
++                            Text("осталось")
++                                .font(.system(size: 14, weight: .medium))
++                                .foregroundColor(.black.opacity(0.6))
++                        }
++                    }
++                    
++                    // СОЖЖЕНО
++                    VStack(spacing: 2) {
++                        Text("\(dailyStats.burned)")
++                            .font(.system(size: 28, weight: .bold, design: .rounded))
++                            .foregroundColor(Color(red: 0.05, green: 0.2, blue: 0.05))
++                        Text("Сожжено")
++                            .font(.system(size: 13, weight: .medium))
++                            .foregroundColor(Color(red: 0.05, green: 0.2, blue: 0.05).opacity(0.6))
++                    }
++                    .frame(width: 80)
++                }
++                .padding(.top, 20)
++                
++                // НИЖНЯЯ ЧАСТЬ (БЖУ - Белки, Жиры, Углеводы)
++                HStack(spacing: 12) {
++                    NutrientBarView(
++                        name: "Белки",
++                        current: 25,
++                        max: 110,
++                        color: Color(red: 0.1, green: 0.75, blue: 0.3)
++                    )
++                    NutrientBarView(
++                        name: "Жиры",
++                        current: 20,
++                        max: 55,
++                        color: Color(red: 0.1, green: 0.75, blue: 0.3)
++                    )
++                    NutrientBarView(
++                        name: "Углеводы",
++                        current: 55,
++                        max: 230,
++                        color: Color(red: 0.1, green: 0.75, blue: 0.3)
++                    )
++                }
++                .padding(.bottom, 25)
++                .padding(.horizontal, 20)
++            }
++        }
++    }
++}
++
++// Внутренний компонент для полосок БЖУ
++struct NutrientBarView: View {
++    let name: String
++    let current: Int
++    let max: Int
++    let color: Color
++    
++    var progress: Double { Double(current) / Double(max) }
++    
++    var body: some View {
++        VStack(alignment: .leading, spacing: 6) {
++            Text(name)
++                .font(.system(size: 14, weight: .semibold))
++                .foregroundColor(Color(red: 0.05, green: 0.15, blue: 0.05)) // Темный текст
++            
++            GeometryReader { geometry in
++                ZStack(alignment: .leading) {
++                    // Фон полоски
++                    RoundedRectangle(cornerRadius: 4)
++                        .fill(Color.black.opacity(0.08))
++                        .frame(height: 7)
++                    
++                    // Заполнение
++                    RoundedRectangle(cornerRadius: 4)
++                        .fill(color)
++                        .frame(width: geometry.size.width * progress, height: 7)
++                }
++            }
++            .frame(height: 7)
++            
++            Text("\(current)/\(max)")
++                .font(.system(size: 12))
++                .foregroundColor(Color.black.opacity(0.5))
++        }
++        .frame(maxWidth: .infinity)
++    }
++}
++
++#Preview {
++    CalorieRingView(dailyStats: DailyStats(consumed: 500, burned: 250, goal: 1950))
++        .padding()
++}
++
++
++
++
+diff --git a/Lumo/Lumo/diary/Views/Components/CircularProgressView.swift b/Lumo/Lumo/diary/Views/Components/CircularProgressView.swift
+new file mode 100644
+index 0000000..c36735a
+--- /dev/null
++++ b/Lumo/Lumo/diary/Views/Components/CircularProgressView.swift
+@@ -0,0 +1,48 @@
++//
++//  CircularProgressView.swift
++//  Lumo
++//
++//  Created by Matvey Veselkov on 22.11.2025.
++//
++import SwiftUI
++
++struct CircularProgressView: View {
++    let progress: Double
++    let lineWidth: CGFloat
++    let progressColor: Color
++    let backgroundColor: Color
++    
++    init(
++        progress: Double,
++        lineWidth: CGFloat = 18,
++        progressColor: Color = Color.green.opacity(0.85),
++        backgroundColor: Color = Color.gray.opacity(0.15)
++    ) {
++        self.progress = min(max(progress, 0), 1)
++        self.lineWidth = lineWidth
++        self.progressColor = progressColor
++        self.backgroundColor = backgroundColor
++    }
++    
++    var body: some View {
++        ZStack {
++            Circle()
++                .stroke(backgroundColor, lineWidth: lineWidth)
++            
++            Circle()
++                .trim(from: 0.0, to: progress)
++                .stroke(
++                    progressColor,
++                    style: StrokeStyle(lineWidth: lineWidth, lineCap: .round)
++                )
++                .rotationEffect(.degrees(-90))
++                .animation(.easeInOut(duration: 0.8), value: progress)
++        }
++    }
++}
++
++#Preview {
++    CircularProgressView(progress: 0.65)
++        .frame(width: 140, height: 140)
++        .padding()
++}
+diff --git a/Lumo/Lumo/diary/Views/Components/CustomTabBar.swift b/Lumo/Lumo/diary/Views/Components/CustomTabBar.swift
+new file mode 100644
+index 0000000..ec35d69
+--- /dev/null
++++ b/Lumo/Lumo/diary/Views/Components/CustomTabBar.swift
+@@ -0,0 +1,82 @@
++//
++//  CustomTabBar.swift
++//  Lumo
++//
++//  Created by Matvey Veselkov on 22.11.2025.
++//
++import SwiftUI
++
++// MARK: - Tab Bar Button
++struct TabBarButton: View {
++    let icon: String
++    let isSelected: Bool
++    let action: () -> Void
++    
++    var body: some View {
++        Button(action: action) {
++            Image(systemName: icon)
++                .font(.system(size: 28, weight: .medium))
++                .foregroundColor(isSelected ? Color.green.opacity(0.85) : .gray)
++                .scaleEffect(isSelected ? 1.1 : 1.0)
++                .animation(.spring(response: 0.3), value: isSelected)
++        }
++    }
++}
++
++// MARK: - Custom Tab Bar
++struct CustomTabBar: View {
++    @Binding var selectedTab: Int
++    
++    var body: some View {
++        HStack(spacing: 0) {
++            TabBarButton(
++                icon: "person.crop.circle.fill",
++                isSelected: selectedTab == 0,
++                action: { selectedTab = 0 }
++            )
++            
++            Spacer()
++            
++            TabBarButton(
++                icon: "house.fill",
++                isSelected: selectedTab == 1,
++                action: { selectedTab = 1 }
++            )
++            
++            Spacer()
++            
++            TabBarButton(
++                icon: "chart.bar.fill",
++                isSelected: selectedTab == 2,
++                action: { selectedTab = 2 }
++            )
++        }
++        .padding(.horizontal, 50)
++        .padding(.vertical, 16)
++        .background(
++            ZStack {
++                // Основной фон
++                Color.white
++                
++                // Блик сверху
++                LinearGradient(
++                    gradient: Gradient(colors: [
++                        Color.white.opacity(0.8),
++                        Color.clear
++                    ]),
++                    startPoint: .top,
++                    endPoint: .bottom
++                )
++                .frame(height: 2)
++                .offset(y: -30)
++            }
++        )
++        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: -3)
++    }
++}
++
++#Preview {
++    CustomTabBar(selectedTab: .constant(1))
++}
++
++
+diff --git a/Lumo/Lumo/diary/Views/Components/MealRow.swift b/Lumo/Lumo/diary/Views/Components/MealRow.swift
+new file mode 100644
+index 0000000..b0dd801
+--- /dev/null
++++ b/Lumo/Lumo/diary/Views/Components/MealRow.swift
+@@ -0,0 +1,89 @@
++//
++//  Untitled.swift
++//  Lumo
++//
++//  Created by Matvey Veselkov on 22.11.2025.
++//
++import SwiftUI
++
++struct MealRow: View {
++    let meal: MealData
++    let onAddTap: () -> Void
++    let isLast: Bool
++    
++    // Проверка: если калории > 0, значит элемент активен (зеленый)
++    var isActive: Bool { meal.calories > 0 }
++    
++    var body: some View {
++        VStack(spacing: 0) {
++            HStack(alignment: .center, spacing: 12) {
++                
++                // 1. Круг
++                ZStack {
++                    Circle()
++                        .fill(
++                            isActive
++                            // Цвет фона круга (Светло-белый на зеленом фоне)
++                            ? Color.white.opacity(0.4)
++                            // Серый для неактивных
++                            : Color.black.opacity(0.05)
++                        )
++                        .frame(width: 52, height: 52)
++                    
++                    VStack(spacing: 0) {
++                        Text("\(meal.calories)")
++                            .font(.system(size: 15, weight: .bold))
++                            // Цвет текста (Темно-зеленый)
++                            .foregroundColor(isActive ? Color(red: 0.05, green: 0.2, blue: 0.05) : .secondary)
++                        Text("ккал")
++                            .font(.system(size: 10))
++                            .foregroundColor(isActive ? Color(red: 0.05, green: 0.2, blue: 0.05).opacity(0.6) : .secondary)
++                    }
++                }
++                
++                // 2. Название
++                Text(meal.name)
++                    .font(.system(size: 16, weight: .semibold))
++                    .foregroundColor(Color(red: 0.05, green: 0.2, blue: 0.05)) // Темный текст
++                    .frame(width: 80, alignment: .leading)
++                
++                Spacer()
++                
++                // 3. Цифры БЖУ
++                Group {
++                    Text("\(meal.protein)").frame(width: 28)
++                    Text("\(meal.fat)").frame(width: 28)
++                    Text("\(meal.carbs)").frame(width: 28)
++                    Text("\(meal.percentage)%").frame(width: 38)
++                }
++                .font(.system(size: 13, weight: .medium))
++                .foregroundColor(Color(red: 0.05, green: 0.2, blue: 0.05).opacity(0.7))
++                
++                // 4. Кнопка Плюс
++                Button(action: onAddTap) {
++                    Image(systemName: "plus.circle.fill")
++                        .font(.system(size: 26))
++                        .foregroundColor(
++                            isActive
++                            ? Color(red: 0.1, green: 0.75, blue: 0.3) // Ярко-зеленый
++                            : Color.black.opacity(0.2)
++                        )
++                }
++            }
++            .padding(.vertical, 8)
++            .padding(.horizontal, 16) // Важно: внутренний отступ
++            
++            // Разделитель
++            if !isLast {
++                Divider()
++                    .background(Color.black.opacity(0.05))
++                    .padding(.leading, 80)
++            }
++        }
++    }
++}
++
++
++
++
++
+diff --git a/Lumo/Lumo/diary/Views/Components/NutrientProgressBar.swift b/Lumo/Lumo/diary/Views/Components/NutrientProgressBar.swift
+new file mode 100644
+index 0000000..faea9ee
+--- /dev/null
++++ b/Lumo/Lumo/diary/Views/Components/NutrientProgressBar.swift
+@@ -0,0 +1,41 @@
++//
++//  NutrientProgressBar.swift
++//  Lumo
++//
++//  Created by Matvey Veselkov on 22.11.2025.
++//
++import SwiftUI
++
++struct NutrientProgressBar: View {
++    let nutrient: NutrientData
++    let color: Color
++    
++    var body: some View {
++        VStack(alignment: .leading, spacing: 6) {
++            Text(nutrient.name)
++                .font(.system(size: 13, weight: .medium))
++            
++            GeometryReader { geometry in
++                ZStack(alignment: .leading) {
++                    RoundedRectangle(cornerRadius: 4)
++                        .fill(Color.gray.opacity(0.2))
++                        .frame(height: 6)
++                    
++                    RoundedRectangle(cornerRadius: 4)
++                        .fill(color)
++                        .frame(
++                            width: geometry.size.width * nutrient.progress,
++                            height: 6
++                        )
++                        .animation(.easeInOut(duration: 0.6), value: nutrient.progress)
++                }
++            }
++            .frame(height: 6)
++            
++            Text(nutrient.displayText)
++                .font(.system(size: 11))
++                .foregroundColor(.secondary)
++        }
++    }
++}
++
+diff --git a/Lumo/Lumo/diary/Views/Components/NutrientsRow.swift b/Lumo/Lumo/diary/Views/Components/NutrientsRow.swift
+new file mode 100644
+index 0000000..2bee7f0
+--- /dev/null
++++ b/Lumo/Lumo/diary/Views/Components/NutrientsRow.swift
+@@ -0,0 +1,23 @@
++//
++//  NutrientsRow.swift
++//  Lumo
++//
++//  Created by Matvey Veselkov on 22.11.2025.
++//
++import SwiftUI
++
++struct NutrientsRow: View {
++    let protein: NutrientData
++    let fat: NutrientData
++    let carbs: NutrientData
++    
++    var body: some View {
++        HStack(spacing: 16) {
++            NutrientProgressBar(nutrient: protein, color: .green)
++            NutrientProgressBar(nutrient: fat, color: .green)
++            NutrientProgressBar(nutrient: carbs, color: .green)
++        }
++        .padding(.horizontal, 4)
++    }
++}
++
+diff --git a/Lumo/Lumo/diary/Views/Components/WaterIntakeCard.swift b/Lumo/Lumo/diary/Views/Components/WaterIntakeCard.swift
+new file mode 100644
+index 0000000..4d54ddf
+--- /dev/null
++++ b/Lumo/Lumo/diary/Views/Components/WaterIntakeCard.swift
+@@ -0,0 +1,242 @@
++//
++//  WaterIntakeCard.swift
++//  Lumo
++//
++//  Created by Matvey Veselkov on 22.11.2025.
++//
++import SwiftUI
++
++// Исправленная 3D капля (с видимым объемом)
++struct RealisticWaterDroplet: View {
++    let size: CGFloat
++    
++    var body: some View {
++        ZStack {
++            // 1. Внешняя тень (для отрыва от фона)
++            Circle()
++                .fill(Color.black.opacity(0.25)) // Темная тень
++                .frame(width: size, height: size)
++                .offset(x: size * 0.1, y: size * 0.15) // Смещаем вниз-вправо
++                .blur(radius: size * 0.1)
++            
++            // 2. Тело капли (Осветление фона под каплей)
++            Circle()
++                .fill(
++                    LinearGradient(
++                        gradient: Gradient(colors: [
++                            Color.white.opacity(0.25), // Светлый верх
++                            Color.white.opacity(0.05)  // Прозрачный низ
++                        ]),
++                        startPoint: .topLeading,
++                        endPoint: .bottomTrailing
++                    )
++                )
++                .frame(width: size, height: size)
++                // Добавляем режим наложения для "стеклянности"
++                .blendMode(.overlay)
++            
++            // 3. Внутренний контур (Глубина)
++            Circle()
++                .strokeBorder(
++                    LinearGradient(
++                        gradient: Gradient(colors: [
++                            Color(red: 0.1, green: 0.3, blue: 0.6).opacity(0.5), // Темный контур сверху
++                            Color.clear,
++                            Color.white.opacity(0.8) // Яркий контур снизу
++                        ]),
++                        startPoint: .topLeading,
++                        endPoint: .bottomTrailing
++                    ),
++                    lineWidth: size * 0.06
++                )
++                .frame(width: size, height: size)
++            
++            // 4. Нижний внутренний рефлекс (линза)
++            Circle()
++                .fill(
++                    RadialGradient(
++                        gradient: Gradient(colors: [
++                            Color.white.opacity(0.6),
++                            Color.clear
++                        ]),
++                        center: .bottomTrailing,
++                        startRadius: 0,
++                        endRadius: size * 0.6
++                    )
++                )
++                .frame(width: size * 0.9, height: size * 0.9)
++                .offset(x: size * 0.05, y: size * 0.05)
++                .mask(Circle().frame(width: size, height: size)) // Обрезаем только блик
++            
++            // 5. Верхний зеркальный блик
++            Ellipse()
++                .fill(Color.white.opacity(0.9))
++                .frame(width: size * 0.35, height: size * 0.25)
++                .rotationEffect(.degrees(-45))
++                .offset(x: -size * 0.2, y: -size * 0.25)
++                .blur(radius: size * 0.05) // Мягкое размытие
++            
++            // 6. Точечный блик (резкий)
++            Circle()
++                .fill(Color.white)
++                .frame(width: size * 0.08, height: size * 0.08)
++                .offset(x: size * 0.1, y: -size * 0.35)
++        }
++    }
++}
++
++struct WaterIntakeCard: View {
++    @State private var currentWater: Double
++    let goalWater: Double
++    
++    init(current: Double, goal: Double) {
++        self._currentWater = State(initialValue: current)
++        self.goalWater = goal
++    }
++    
++    var progress: Double {
++        guard goalWater > 0 else { return 0 }
++        return min(currentWater / goalWater, 1.0)
++    }
++    
++    var body: some View {
++        ZStack {
++            // === ФОН КАРТОЧКИ ===
++            ZStack {
++                // 1. Горизонтальный градиент
++                LinearGradient(
++                    gradient: Gradient(colors: [
++                        Color(red: 0.4, green: 0.75, blue: 0.95), // Светло-голубой (Sky Blue)
++                        Color(red: 0.2, green: 0.6, blue: 0.85)   // Насыщенный синий
++                    ]),
++                    startPoint: .leading,
++                    endPoint: .trailing
++                )
++                
++                // 2. Центральный просвет (Glow)
++                RadialGradient(
++                    gradient: Gradient(colors: [
++                        Color.white.opacity(0.35), // Яркий центр
++                        Color.white.opacity(0.05),
++                        Color.clear
++                    ]),
++                    center: .center,
++                    startRadius: 10,
++                    endRadius: 200
++                )
++                .blendMode(.overlay)
++            }
++            .cornerRadius(20)
++            .shadow(color: Color.blue.opacity(0.3), radius: 15, x: 0, y: 8)
++            
++            // === КАПЛИ ===
++            // Используем ZStack и обрезаем его целиком, а не каждую каплю отдельно
++            ZStack {
++                // Левая верхняя (большая)
++                RealisticWaterDroplet(size: 60)
++                    .offset(x: -160, y: -52)
++                
++                // Правая верхняя (средняя)
++                RealisticWaterDroplet(size: 55)
++                    .offset(x: 105, y: -70)
++                
++                // Правая крайняя (средняя)
++                RealisticWaterDroplet(size: 50)
++                    .offset(x: 165, y: -15)
++                
++                // Левая нижняя (средняя)
++                RealisticWaterDroplet(size: 50)
++                    .offset(x: -80, y: 20)
++            }
++            .frame(maxWidth: .infinity, maxHeight: .infinity) // На всю карточку
++            .clipShape(RoundedRectangle(cornerRadius: 20)) // Обрезаем капли по границе карточки
++            
++            // === КОНТЕНТ ===
++            VStack(spacing: 0) {
++                Text("Не забудь\nвыпить воды!")
++                    .font(.system(size: 28, weight: .bold))
++                    .multilineTextAlignment(.center)
++                    .foregroundColor(Color(red: 0.05, green: 0.15, blue: 0.3)) // Темно-синий текст для контраста
++                    .padding(.top, 25)
++                    .shadow(color: Color.white.opacity(0.3), radius: 1, x: 0, y: 1)
++                
++                Spacer()
++                
++                HStack(alignment: .bottom, spacing: 15) {
++                    VStack(alignment: .leading, spacing: 8) {
++                        HStack {
++                            Text("\(Int(currentWater)) мл")
++                                .font(.system(size: 19, weight: .semibold))
++                                .foregroundColor(.black)
++                            Spacer()
++                            Text("\(Int(goalWater).formattedWithSeparator()) мл")
++                                .font(.system(size: 19, weight: .semibold))
++                                .foregroundColor(.black)
++                        }
++                        
++                        GeometryReader { geometry in
++                            ZStack(alignment: .leading) {
++                                RoundedRectangle(cornerRadius: 10)
++                                    .fill(Color.white.opacity(0.4))
++                                    .frame(height: 16)
++                                
++                                RoundedRectangle(cornerRadius: 10)
++                                    .fill(Color(red: 0.0, green: 0.45, blue: 0.8)) // Яркий синий
++                                    .frame(width: geometry.size.width * progress, height: 16)
++                                    .animation(.spring(response: 0.6), value: progress)
++                            }
++                        }
++                        .frame(height: 16)
++                    }
++                    .padding(.bottom, 25)
++                    
++                    Button(action: {
++                        withAnimation {
++                            currentWater = min(currentWater + 250, goalWater)
++                        }
++                    }) {
++                        ZStack {
++                            RoundedRectangle(cornerRadius: 14)
++                                .fill(Color.white.opacity(0.9))
++                                .frame(width: 55, height: 55)
++                                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 3)
++                            
++                            Image(systemName: "plus")
++                                .font(.system(size: 32, weight: .bold))
++                                .foregroundColor(Color(red: 0.0, green: 0.45, blue: 0.8))
++                        }
++                    }
++                    .padding(.bottom, 20)
++                }
++                .padding(.horizontal, 20)
++            }
++        }
++        .frame(height: 200) // Чуть выше карточка
++    }
++}
++
++extension Int {
++    func formattedWithSeparator() -> String {
++        let formatter = NumberFormatter()
++        formatter.numberStyle = .decimal
++        formatter.groupingSeparator = " "
++        return formatter.string(for: self) ?? ""
++    }
++}
++
++#Preview {
++    ZStack {
++        Color.gray.opacity(0.1).ignoresSafeArea()
++        WaterIntakeCard(current: 500, goal: 2200)
++            .padding()
++    }
++}
++
++
++
++
++
++
++
++
++
+diff --git a/Lumo/Lumo/diary/Views/HomeView.swift b/Lumo/Lumo/diary/Views/HomeView.swift
+new file mode 100644
+index 0000000..2703543
+--- /dev/null
++++ b/Lumo/Lumo/diary/Views/HomeView.swift
+@@ -0,0 +1,106 @@
++//
++//  HomeView.swift
++//  Lumo
++//
++//  Created by Matvey Veselkov on 22.11.2025.
++//
++import SwiftUI
++
++struct HomeView: View {
++    @State private var selectedTab: Int = 1
++    @State private var dailyStats = DailyStats(consumed: 500, burned: 250, goal: 1950)
++    
++    @State private var meals: [MealData] = [
++        MealData(name: "Завтрак", calories: 500, protein: 25, fat: 20, carbs: 55),
++        MealData(name: "Обед", calories: 0, protein: 0, fat: 0, carbs: 0),
++        MealData(name: "Ужин", calories: 0, protein: 0, fat: 0, carbs: 0),
++        MealData(name: "Перекус", calories: 0, protein: 0, fat: 0, carbs: 0)
++    ]
++    
++    var body: some View {
++        ZStack(alignment: .bottom) {
++            ScrollView(showsIndicators: false) {
++                VStack(alignment: .leading, spacing: 16) {
++                    
++                    // Приветствие
++                    VStack(alignment: .leading, spacing: 4) {
++                        Text("Привет, Айлин!")
++                            .font(.system(size: 28, weight: .bold))
++                            .foregroundColor(.primary)
++                        Text("Вы молодец, продолжайте в том же духе!")
++                            .font(.system(size: 15))
++                            .foregroundColor(.secondary)
++                    }
++                    .padding(.horizontal)
++                    .padding(.top, 8)
++                    
++                    // Карточки
++                    CalorieRingView(dailyStats: dailyStats)
++                        .padding(.horizontal)
++                    
++                    WaterIntakeCard(current: 1250, goal: 2200)
++                        .padding(.horizontal)
++                    
++                    // СПИСОК ЕДЫ
++                    VStack(spacing: 0) {
++                        ForEach(Array(meals.enumerated()), id: \.element.id) { index, meal in
++                            MealRow(
++                                meal: meal,
++                                onAddTap: {
++                                    // Здесь мы используем meal.name, чтобы знать, куда нажали
++                                    print("Добавить \(meal.name)")
++                                    
++                                    // Если нужно открыть экран добавления, здесь будет код навигации, например:
++                                    // isShowingAddFoodSheet = true
++                                    // selectedMealType = meal.name
++                                },
++                                isLast: index == meals.count - 1
++                            )
++                        }
++                    }
++
++                    // ВАЖНО: Внутренний отступ самого контейнера
++                    .padding(.vertical, 4)
++                    .background(
++                        // ТОЧНАЯ КОПИЯ ЗЕЛЕНОГО ГРАДИЕНТА
++                        ZStack {
++                            LinearGradient(
++                                gradient: Gradient(colors: [
++                                    Color(red: 0.4, green: 0.85, blue: 0.6),  // Мятный
++                                    Color(red: 0.25, green: 0.65, blue: 0.45) // Темнее
++                                ]),
++                                startPoint: .topLeading,
++                                endPoint: .bottomTrailing
++                            )
++                            
++                            RadialGradient(
++                                gradient: Gradient(colors: [
++                                    Color.white.opacity(0.35),
++                                    Color.white.opacity(0.05),
++                                    Color.clear
++                                ]),
++                                center: .center,
++                                startRadius: 10,
++                                endRadius: 200
++                            )
++                            .blendMode(.overlay)
++                        }
++                    )
++                    .cornerRadius(24)
++                    .shadow(color: Color.green.opacity(0.2), radius: 12, x: 0, y: 6)
++                    .padding(.horizontal)
++                    .padding(.bottom, 100)
++                }
++            }
++            .background(Color(UIColor.systemGroupedBackground))
++            
++            CustomTabBar(selectedTab: $selectedTab)
++        }
++        .edgesIgnoringSafeArea(.bottom)
++    }
++}
++
++
++
++
++
+-- 
+2.51.0
+
