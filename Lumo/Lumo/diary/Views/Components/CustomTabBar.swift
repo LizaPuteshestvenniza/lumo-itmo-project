@@ -1,82 +1,74 @@
-//
-//  CustomTabBar.swift
-//  Lumo
-//
-//  Created by Matvey Veselkov on 22.11.2025.
-//
 import SwiftUI
 
-// MARK: - Tab Bar Button
-struct TabBarButton: View {
-    let icon: String
-    let isSelected: Bool
-    let action: () -> Void
-    
-    var body: some View {
-        Button(action: action) {
-            Image(systemName: icon)
-                .font(.system(size: 28, weight: .medium))
-                .foregroundColor(isSelected ? Color.green.opacity(0.85) : .gray)
-                .scaleEffect(isSelected ? 1.1 : 1.0)
-                .animation(.spring(response: 0.3), value: isSelected)
-        }
-    }
-}
-
-// MARK: - Custom Tab Bar
 struct CustomTabBar: View {
     @Binding var selectedTab: Int
     
     var body: some View {
-        HStack(spacing: 0) {
-            TabBarButton(
-                icon: "person.crop.circle.fill",
-                isSelected: selectedTab == 0,
-                action: { selectedTab = 0 }
-            )
-            
-            Spacer()
-            
-            TabBarButton(
-                icon: "house.fill",
-                isSelected: selectedTab == 1,
-                action: { selectedTab = 1 }
-            )
-            
-            Spacer()
-            
-            TabBarButton(
-                icon: "chart.bar.fill",
-                isSelected: selectedTab == 2,
-                action: { selectedTab = 2 }
-            )
-        }
-        .padding(.horizontal, 50)
-        .padding(.vertical, 16)
-        .background(
-            ZStack {
-                // Основной фон
-                Color.white
-                
-                // Блик сверху
-                LinearGradient(
-                    gradient: Gradient(colors: [
-                        Color.white.opacity(0.8),
-                        Color.clear
-                    ]),
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-                .frame(height: 2)
-                .offset(y: -30)
+        HStack {
+            // 1. Профиль
+            Button(action: { selectedTab = 0 }) {
+                Image(systemName: "person.circle.fill")
+                    .font(.system(size: 24))
+                    .foregroundColor(selectedTab == 0 ? .black : .gray)
+                    .frame(maxWidth: .infinity)
             }
-        )
-        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: -3)
+            
+            // 2. Домик (Главная)
+            Button(action: { selectedTab = 1 }) {
+                Image(systemName: "house.fill")
+                    .font(.system(size: 24))
+                    .foregroundColor(selectedTab == 1 ? .black : .gray)
+                    .frame(maxWidth: .infinity)
+            }
+            
+            // 3. Статистика
+            Button(action: { selectedTab = 2 }) {
+                Image(systemName: "chart.bar.fill")
+                    .font(.system(size: 24))
+                    .foregroundColor(selectedTab == 2 ? Color(red: 0.2, green: 0.8, blue: 0.4) : .gray) // Зеленый активный
+                    .frame(maxWidth: .infinity)
+            }
+        }
+        .padding(.top, 14) // Отступ сверху
+        //Отступ снизу для Safe Area, чтобы иконки не перекрывались полоской
+        .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 34)
+        .background(Color.white)
+        .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+        .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: -5)
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
-#Preview {
-    CustomTabBar(selectedTab: .constant(1))
+struct CustomTabBarModern: View {
+    @Binding var selectedTab: Int
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            HStack {
+                TabBarButton(icon: "person.circle.fill", index: 0, selection: $selectedTab)
+                TabBarButton(icon: "house.fill", index: 1, selection: $selectedTab)
+                TabBarButton(icon: "chart.bar.fill", index: 2, selection: $selectedTab)
+            }
+            .padding(.top, 14)
+            .padding(.bottom, 0)
+        }
+        .background(Color.white)
+        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: -5)
+    }
 }
 
+struct TabBarButton: View {
+    let icon: String
+    let index: Int
+    @Binding var selection: Int
+    
+    var body: some View {
+        Button(action: { selection = index }) {
+            Image(systemName: icon)
+                .font(.system(size: 24))
+                .foregroundColor(selection == index ? (index == 2 ? Color.green : .black) : .gray)
+                .frame(maxWidth: .infinity)
+        }
+    }
+}
 

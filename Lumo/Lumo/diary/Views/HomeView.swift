@@ -1,14 +1,18 @@
-//
-//  HomeView.swift
-//  Lumo
-//
-//  Created by Matvey Veselkov on 22.11.2025.
-//
 import SwiftUI
 
 struct HomeView: View {
     @State private var selectedTab: Int = 1
     @State private var dailyStats = DailyStats(consumed: 500, burned: 250, goal: 1950)
+    
+    // Состояние для открытия экрана добавления воды
+    @State private var showAddWater = false
+    
+    @State private var currentWaterAmount: Double = 1250
+    
+    @State private var waterHistory: [Int] = [300, 200]
+    
+    @State private var showAddMeal = false
+    @State private var selectedMealIndex: Int = 0
     
     @State private var meals: [MealData] = [
         MealData(name: "Завтрак", calories: 500, protein: 25, fat: 20, carbs: 55),
@@ -19,88 +23,124 @@ struct HomeView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 16) {
+            ZStack {
+                switch selectedTab {
+                case 0:
+                    Text("Экран Профиля")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color(UIColor.systemGroupedBackground))
                     
-                    // Приветствие
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Привет, Айлин!")
-                            .font(.system(size: 28, weight: .bold))
-                            .foregroundColor(.primary)
-                        Text("Вы молодец, продолжайте в том же духе!")
-                            .font(.system(size: 15))
-                            .foregroundColor(.secondary)
-                    }
-                    .padding(.horizontal)
-                    .padding(.top, 8)
-                    
-                    // Карточки
-                    CalorieRingView(dailyStats: dailyStats)
-                        .padding(.horizontal)
-                    
-                    WaterIntakeCard(current: 1250, goal: 2200)
-                        .padding(.horizontal)
-                    
-                    // СПИСОК ЕДЫ
-                    VStack(spacing: 0) {
-                        ForEach(Array(meals.enumerated()), id: \.element.id) { index, meal in
-                            MealRow(
-                                meal: meal,
-                                onAddTap: {
-                                    // Здесь мы используем meal.name, чтобы знать, куда нажали
-                                    print("Добавить \(meal.name)")
-                                    
-                                    // Если нужно открыть экран добавления, здесь будет код навигации, например:
-                                    // isShowingAddFoodSheet = true
-                                    // selectedMealType = meal.name
-                                },
-                                isLast: index == meals.count - 1
-                            )
-                        }
-                    }
-
-                    // ВАЖНО: Внутренний отступ самого контейнера
-                    .padding(.vertical, 4)
-                    .background(
-                        // ТОЧНАЯ КОПИЯ ЗЕЛЕНОГО ГРАДИЕНТА
-                        ZStack {
-                            LinearGradient(
-                                gradient: Gradient(colors: [
-                                    Color(red: 0.4, green: 0.85, blue: 0.6),  // Мятный
-                                    Color(red: 0.25, green: 0.65, blue: 0.45) // Темнее
-                                ]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
+                case 1:
+                    // ГЛАВНЫЙ ЭКРАН
+                    ScrollView(showsIndicators: false) {
+                        VStack(alignment: .leading, spacing: 16) {
                             
-                            RadialGradient(
-                                gradient: Gradient(colors: [
-                                    Color.white.opacity(0.35),
-                                    Color.white.opacity(0.05),
-                                    Color.clear
-                                ]),
-                                center: .center,
-                                startRadius: 10,
-                                endRadius: 200
+                            // Приветствие
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Привет, Айлин!")
+                                    .font(.system(size: 28, weight: .bold))
+                                    .foregroundColor(.primary)
+                                Text("Вы молодец, продолжайте в том же духе!")
+                                    .font(.system(size: 15))
+                                    .foregroundColor(.secondary)
+                            }
+                            .padding(.horizontal, 16)
+                            .padding(.top, 8)
+                            
+                            // Карточка Калорий
+                            CalorieRingView(dailyStats: dailyStats)
+                                .padding(.horizontal, 16)
+                            
+                            // Карточка Воды
+                            WaterIntakeCard(
+                                current: currentWaterAmount,
+                                goal: 2200,
+                                onAddTap: { showAddWater = true }
                             )
-                            .blendMode(.overlay)
+                            .padding(.horizontal, 16)
+                            
+                            // Список Еды
+                            VStack(spacing: 0) {
+                                            ForEach(Array(meals.enumerated()), id: \.element.id) { index, meal in
+                                                MealRow(
+                                                    meal: meal,
+                                                    onAddTap: {
+                                                        selectedMealIndex = index
+                                                        showAddMeal = true
+                                                    },
+                                                    isLast: index == meals.count - 1
+                                                )
+                                            }
+                                        }
+                            .padding(.vertical, 4)
+                            .background(
+                                ZStack {
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [
+                                            Color(red: 0.4, green: 0.85, blue: 0.6),
+                                            Color(red: 0.25, green: 0.65, blue: 0.45)
+                                        ]),
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                    RadialGradient(
+                                        gradient: Gradient(colors: [
+                                            Color.white.opacity(0.35),
+                                            Color.white.opacity(0.05),
+                                            Color.clear
+                                        ]),
+                                        center: .center,
+                                        startRadius: 10,
+                                        endRadius: 200
+                                    )
+                                    .blendMode(.overlay)
+                                }
+                            )
+                            .cornerRadius(24)
+                            .shadow(color: Color.green.opacity(0.2), radius: 12, x: 0, y: 6)
+                            .padding(.horizontal, 16)
+                            .padding(.bottom, 100)
                         }
-                    )
-                    .cornerRadius(24)
-                    .shadow(color: Color.green.opacity(0.2), radius: 12, x: 0, y: 6)
-                    .padding(.horizontal)
-                    .padding(.bottom, 100)
+                        .padding(.top, 1)
+                    }
+                    
+                case 2:
+                    // Экран статистики
+                    StatsView()
+                    
+                default:
+                    Text("Error")
                 }
             }
-            .background(Color(UIColor.systemGroupedBackground))
+            .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
             
             CustomTabBar(selectedTab: $selectedTab)
+            
         }
         .edgesIgnoringSafeArea(.bottom)
-    }
-}
+        .fullScreenCover(isPresented: $showAddWater) {
+            AddWaterView(
+                history: $waterHistory,
+                currentWater: $currentWaterAmount //
+            )
+        }
+        
+        .sheet(isPresented: $showAddMeal) {
+            AddMealView { newMealData in
+                // 1. Обновляем список еды
+                meals[selectedMealIndex].calories += newMealData.calories
+                meals[selectedMealIndex].protein += newMealData.protein
+                meals[selectedMealIndex].fat += newMealData.fat
+                meals[selectedMealIndex].carbs += newMealData.carbs
+                
+                // 2. ОБНОВЛЯЕМ ОБЩУЮ СТАТИСТИКУ (БЖУ)
+                dailyStats.consumed += newMealData.calories
+                dailyStats.protein += newMealData.protein
+                dailyStats.fat += newMealData.fat
+                dailyStats.carbs += newMealData.carbs
+            }
+        }
 
-
-
-
+            }
+        }
 
