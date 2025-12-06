@@ -65,13 +65,13 @@ struct MealRow: View {
                         .font(.system(size: 26))
                         .foregroundColor(
                             isActive
-                            ? Color(red: 0.1, green: 0.75, blue: 0.3) // Ярко-зеленый
+                            ? Color(red: 0.4, green: 0.85, blue: 0.6) // Ярко-зеленый
                             : Color.black.opacity(0.2)
                         )
                 }
             }
             .padding(.vertical, 8)
-            .padding(.horizontal, 16) // Важно: внутренний отступ
+            .padding(.horizontal, 16) //внутренний отступ
             
             // Разделитель
             if !isLast {

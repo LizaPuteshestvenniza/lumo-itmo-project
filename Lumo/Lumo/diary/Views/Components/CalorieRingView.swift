@@ -11,7 +11,7 @@ struct CalorieRingView: View {
     
     var body: some View {
         ZStack {
-            // === ФОН (Светлый мятно-зеленый градиент) ===
+            //Светлый мятно-зеленый градиент
             ZStack {
                 LinearGradient(
                     gradient: Gradient(colors: [
@@ -38,7 +38,7 @@ struct CalorieRingView: View {
             .cornerRadius(24)
             .shadow(color: Color.green.opacity(0.25), radius: 12, x: 0, y: 6)
             
-            // === КОНТЕНТ ===
+            //КОНТЕНТ
             VStack(spacing: 25) {
                 // ВЕРХНЯЯ ЧАСТЬ (Цифры и Круг)
                 HStack(alignment: .center, spacing: 10) {
@@ -98,27 +98,27 @@ struct CalorieRingView: View {
                 
                 // НИЖНЯЯ ЧАСТЬ (БЖУ - Белки, Жиры, Углеводы)
                 HStack(spacing: 12) {
-                    NutrientBarView(
-                        name: "Белки",
-                        current: 25,
-                        max: 110,
-                        color: Color(red: 0.1, green: 0.75, blue: 0.3)
-                    )
-                    NutrientBarView(
-                        name: "Жиры",
-                        current: 20,
-                        max: 55,
-                        color: Color(red: 0.1, green: 0.75, blue: 0.3)
-                    )
-                    NutrientBarView(
-                        name: "Углеводы",
-                        current: 55,
-                        max: 230,
-                        color: Color(red: 0.1, green: 0.75, blue: 0.3)
-                    )
-                }
-                .padding(.bottom, 25)
-                .padding(.horizontal, 20)
+                                    NutrientBarView(
+                                        name: "Белки",
+                                        current: dailyStats.protein, //  из dailyStats
+                                        max: dailyStats.proteinGoal,
+                                        color: Color(red: 0.1, green: 0.75, blue: 0.3)
+                                    )
+                                    NutrientBarView(
+                                        name: "Жиры",
+                                        current: dailyStats.fat,     // из dailyStats
+                                        max: dailyStats.fatGoal,
+                                        color: Color(red: 0.1, green: 0.75, blue: 0.3)
+                                    )
+                                    NutrientBarView(
+                                        name: "Углеводы",
+                                        current: dailyStats.carbs,   // из dailyStats
+                                        max: dailyStats.carbsGoal,
+                                        color: Color(red: 0.1, green: 0.75, blue: 0.3)
+                                    )
+                                }
+                                .padding(.bottom, 25)
+                                .padding(.horizontal, 20)
             }
         }
     }

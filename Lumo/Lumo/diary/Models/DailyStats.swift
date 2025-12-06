@@ -11,6 +11,16 @@ struct DailyStats {
     var burned: Int
     var goal: Int
     
+    // Добавляем БЖУ
+    var protein: Int = 0
+    var fat: Int = 0
+    var carbs: Int = 0
+    
+    // Цели по БЖУ (можно сделать настраиваемыми)
+    let proteinGoal = 110
+    let fatGoal = 55
+    let carbsGoal = 230
+    
     var remaining: Int {
         goal - consumed + burned
     }
@@ -20,4 +30,3 @@ struct DailyStats {
         return min(Double(consumed) / Double(goal), 1.0)
     }
 }
-
