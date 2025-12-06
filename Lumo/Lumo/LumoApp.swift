@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct LumoApp: App {
+    @AppStorage("hasFinishedOnboarding") private var hasFinishedOnboarding = false
+    
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            if hasFinishedOnboarding {
+                HomeView()              
+            } else {
+                OnboardingMain()
+            }
         }
     }
 }
+

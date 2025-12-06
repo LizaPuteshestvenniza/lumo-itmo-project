@@ -24,9 +24,9 @@ struct ProfileTabBarView: View {
             tabItem(icon: "chart.bar.fill", tab: .stats)
         }
         .padding(.horizontal, 40)
-        .padding(.vertical, 16)
+        .padding(.vertical, 13)
         .background(
-            Color(hex: "#F3F3F3")
+            Color.clear    // или Color.white, если нужен белый фон
                 .ignoresSafeArea(edges: .bottom)
         )
     }
@@ -47,9 +47,10 @@ struct ProfileTabBarView: View {
                     RoundedRectangle(cornerRadius: 24, style: .continuous)
                         .fill(isSelected
                               ? Color(hex: "#79B56A")
-                              : Color(hex: "#F4F4F4"))
+                              : Color.white)
                 )
-                .shadow(color: Color.black.opacity(isSelected ? 0.18 : 0.10),
+                .shadow(
+                    color: isSelected ? Color.black.opacity(0.18) : .clear,
                         radius: isSelected ? 9 : 6,
                         y: 4)
         }

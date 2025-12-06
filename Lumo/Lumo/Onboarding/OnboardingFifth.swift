@@ -12,6 +12,7 @@ struct OnboardingFifth: View {
     @Binding var page: Int
     
     @State private var isSyncEnabled = false
+    @AppStorage("hasFinishedOnboarding") private var hasFinishedOnboarding = false
 
     var body: some View {
         VStack(spacing: 32) {
@@ -50,7 +51,7 @@ struct OnboardingFifth: View {
             .padding(.horizontal, 12)
 
             Button {
-                page += 1
+                hasFinishedOnboarding = true   // переключаемся на HomeView
             } label: {
                 Text("Дальше")
                     .font(.custom("Montserrat-SemiBold", size: 16))
@@ -64,9 +65,9 @@ struct OnboardingFifth: View {
             .padding(.horizontal, 12)
             .padding(.bottom, 50)
         }
-        
     }
 }
+
 
 #Preview {
     OnboardingMain()
